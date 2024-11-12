@@ -2,11 +2,19 @@
 import { useState } from 'react';
 import styles from './App.module.css';
 import poweredImage from './assets/powered.png';
+import { levels, calculateImc} from './helpers/imc'; 
 
 const App = () => {
 
     const [heightField, setHeightField] = useState<number>(0);
     const [weightField, setWeightField] = useState<number>(0);
+    const bundaCalculateButton = () => {
+        if(heightField && weightField) {
+        } else {
+        alert("Digite todos os campos.");
+        }
+    }
+
 
     return (
         <div className={styles.main}>
@@ -26,7 +34,14 @@ const App = () => {
                         value={heightField > 0 ? heightField : ''}
                         onChange={e => setHeightField(parseFloat(e.target.value))}
                         />                        
-                            
+                        
+                        <input
+                        type="number"
+                        placeholder="Digite seu peso"
+                        value={weightField > 0 ? weightField : ''}
+                        onChange={e => setWeightField(parseFloat(e.target.value))}
+                        />  
+                    <button onClick={bundaCalculateButton}>Calcular</button>
                     </div>
                     <div className={styles.rightSide}>...
 

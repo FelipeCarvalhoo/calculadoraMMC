@@ -10,8 +10,11 @@ const App = () => {
 
     const [heightField, setHeightField] = useState<number>(0);
     const [weightField, setWeightField] = useState<number>(0);
-    const bundaCalculateButton = () => {
+    const [toShow, setToShow] = useState<levels | null>(null);
+
+    const CalculateButton = () => {
         if(heightField && weightField) {
+            setToShow(calculateImc(heightField, weightField));
         } else {
         alert("Digite todos os campos.");
         }
@@ -43,14 +46,24 @@ const App = () => {
                         value={weightField > 0 ? weightField : ''}
                         onChange={e => setWeightField(parseFloat(e.target.value))}
                         />  
-                    <button onClick={bundaCalculateButton}>Calcular</button>
+                    <button onClick={CalculateButton}>Calcular</button>
                     </div>
 
                     <div className={styles.rightSide}>
+
+                    {!toShow &&
                         <div className={styles.grid}>
                         {levels.map((item, key)=>(
-                        <GridItem key={key} item={item} />                      ))}
+                        <GridItem key={key} item={item} />                     
+                         ))}
                         </div>
+                       }
+                       {toShow && 
+                         <div className={styles.rightBig}>
+                        <div className={styles.rightArrow}></div>
+                        <GridItem item={toShow} />
+                        </div>
+                              }
 
                     </div>
 

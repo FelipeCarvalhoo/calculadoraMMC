@@ -70,3 +70,8 @@ margin-top:40px;
     grid-template-columns: repeat(2, 1fr);
     gap:20px;
    }
+
+   .Container .rightSide .rightBig {
+    flex:1;
+    display:flex; 
+}

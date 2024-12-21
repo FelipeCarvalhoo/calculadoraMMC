@@ -39,6 +39,9 @@ body {
     font-size:14px;
     outLine:0;
 }
+.Container .leftSide input:disabled {
+    opacity: .5;
+ }
 
 .Container .leftSide button {
 
@@ -57,6 +60,9 @@ margin-top:40px;
     opacity: .4;
     transition: all ease .8s;
     }
+.Container .leftSide button:disabled {
+        opacity: .5;
+    }
 
 .Container .rightSide {
     flex:1;
@@ -74,4 +80,21 @@ margin-top:40px;
    .Container .rightSide .rightBig {
     flex:1;
     display:flex; 
+}
+.Container .rightSide .rightArrow {
+    position: absolute;
+    background-color: #227C9D;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: -35px;
+    margin-top: 145px;
+    transition: all ease .3s;
+}
+.Container .rightSide .rightArrow:hover {
+    opacity: .8;
 }

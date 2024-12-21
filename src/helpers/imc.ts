@@ -18,9 +18,12 @@ export const levels: levels[] = [
        const imc = weight / (height * height);
 
         for (let i in levels) {
-           if (imc >= levels[i].imc[0] && imc < levels[i].imc[1]) {            
+           if (imc >= levels[i].imc[0] && imc < levels[i].imc[1]) {   
+            let levelCopy: levels = {...levels[i]}
+            
+            
               levels[i].yourImc = parseFloat(imc.toFixed(2));
-              return levels[i];
+              return levelCopy;
                 }
              }
             return null;

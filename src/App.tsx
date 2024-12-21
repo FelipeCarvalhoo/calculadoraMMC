@@ -3,6 +3,7 @@ import { useState } from 'react';
 import styles from './App.module.css';
 import poweredImage from './assets/powered.png';
 import { levels, calculateImc} from './helpers/imc'; 
+import leftArrowImage from './assets/leftarrow.png';
 import {GridItem} from './components/GridItem/';
 
 
@@ -19,6 +20,13 @@ const App = () => {
         alert("Digite todos os campos.");
         }
     }
+
+    const handleBackButton = () => {
+        setToShow(null);
+        setHeightField(0);
+        setWeightField(0);
+        console.log("Botão de voltar clicado");
+      }
 
 
     return (
@@ -38,6 +46,7 @@ const App = () => {
                         placeholder="Digite sua altura"
                         value={heightField > 0 ? heightField : ''}
                         onChange={e => setHeightField(parseFloat(e.target.value))}
+                        disabled={toShow ? true : false}
                         />                        
                         
                         <input
@@ -45,8 +54,9 @@ const App = () => {
                         placeholder="Digite seu peso"
                         value={weightField > 0 ? weightField : ''}
                         onChange={e => setWeightField(parseFloat(e.target.value))}
+                        disabled={toShow ? true : false}
                         />  
-                    <button onClick={CalculateButton}>Calcular</button>
+                    <button onClick={CalculateButton} disabled={toShow ? true : false}>Calcular</button>
                     </div>
 
                     <div className={styles.rightSide}>
@@ -60,7 +70,11 @@ const App = () => {
                        }
                        {toShow && 
                          <div className={styles.rightBig}>
-                        <div className={styles.rightArrow}></div>
+                        <div className={styles.rightArrow} onClick={handleBackButton}>
+
+                        <img src={leftArrowImage} alt="" width={25}/>
+                         
+                        </div>
                         <GridItem item={toShow} />
                         </div>
                               }

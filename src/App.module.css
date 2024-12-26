@@ -6,7 +6,9 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     }
-
+.main {
+    padding-bottom:50px;
+}
 .headerContainer {
     max-width: 900px;
     margin: 40px;
@@ -98,3 +100,35 @@ margin-top:40px;
 .Container .rightSide .rightArrow:hover {
     opacity: .8;
 }
+
+@media (max-width: 770px) {
+    header {
+       padding: 0 20px;
+      }
+    .Container {
+       padding: 0 20px;
+       flex-direction: column;
+     }
+    .Container .rightSide {
+       margin-right: 0;
+     }
+    .Container .rightSide {
+       margin-left: 0;
+       margin-top: 50px;
+     }
+    
+    .Container .rightSide .rightArrow {
+        margin-left: 0;
+        margin-top: 0;
+        border-radius: 10px; 
+       }
+
+ @media (max-width: 430px) {
+        .Container .rightSide .grid {
+           grid-template-columns: 1fr;
+          }
+         }
+      
+
+
+    }

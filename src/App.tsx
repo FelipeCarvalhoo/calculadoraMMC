@@ -1,7 +1,7 @@
 // App.tsx
 import { useState } from 'react';
 import styles from './App.module.css';
-import poweredImage from './assets/powered.png';
+import poweredImage from './assets/logoo.png';
 import { levels, calculateImc} from './helpers/imc'; 
 import leftArrowImage from './assets/leftarrow.png';
 import {GridItem} from './components/GridItem/';
